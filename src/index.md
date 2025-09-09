@@ -1,11 +1,9 @@
 ---
-title: Hello World!
+title: Home
 layout: base.njk
 ---
 
-# Heading
-
-Check out your cool new static site built with [11ty](https://11ty.dev) on [neocities](https://neocities.org/)
+Check out my new static site built with [11ty](https://11ty.dev) on [neocities](https://neocities.org/)
 
 This homepage template is perfect for:
 
