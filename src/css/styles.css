@@ -154,48 +154,23 @@ table {
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-thead {
-  background: var(--accent-bg);
-}
-
-th:empty {
-  display: none;
-}
-
-th, td {
+td {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
-}
-
-th:last-child, td:last-child {
-  border-right: none;
-}
-
-th {
-  font-weight: 600;
-  color: var(--text);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-td {
   color: var(--text);
 }
 
+/* Center align second column */
+td:nth-child(2) {
+  text-align: center;
+}
 
 tbody tr:last-child td {
   border-bottom: none;
-}
-
-th[style*="text-align:center"],
-td[style*="text-align:center"] {
-  text-align: center !important;
 }
 
 @media only screen and (max-width: 600px) {
