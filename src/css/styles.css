@@ -53,8 +53,9 @@
     padding: 0 0.5rem;
     box-sizing: border-box;
   }
-  
-  body > header h1 {
+
+  body > header h1,
+  body > header h2 {
     max-width: 100%;
     margin: 1rem auto;
   }
@@ -69,11 +70,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
   
   nav a {
-    margin: 1rem 1rem 0 0;
+    margin: 0 1rem 0 0;
     color: var(--text) !important;
     padding: 0.1rem 1rem;
   }
@@ -99,12 +100,12 @@
   
   /* Add a little padding to ensure spacing is correct between content and nav */
   main {
-    padding-top: 1.5rem;
+    padding-top: 0.5rem;
   }
   
   body > footer {
     margin-top: 4rem;
-    padding: 2rem 1rem 1.5rem 1rem;
+    padding: 1rem 1rem 1.5rem 1rem;
     color: var(--text-light);
     font-size: 0.9rem;
     text-align: center;
