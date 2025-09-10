@@ -1,5 +1,6 @@
 ---
 title: Blogroll
+contentTitle: Here are some of my favorite blogs
 layout: base.njk
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: About Me
+title: About
+contentTitle: About Me
 layout: base.njk
 ---
 
