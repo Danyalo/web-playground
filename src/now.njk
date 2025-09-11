@@ -6,7 +6,7 @@ layout: base.njk
 
 <h3>Folding@Home stats</h3>
 
-<p>I run Folding@Home computations on my desktop PC GPU when it's not too hot outside.
+<p>I run <a href="https://foldingathome.org/">Folding@Home</a> computations on my desktop PC GPU when it's not too hot outside.
 As the weather gets colder it get more and more viable as the GPU doubles as a (very inefficient) space heater.
 If there are blackouts later this year due to Russian attacks, I'll be forced to stop.
 </p>
@@ -14,7 +14,7 @@ If there are blackouts later this year due to Russian attacks, I'll be forced to
 <table>
   <tr>
     <td>Total points</td>
-    <td>{{ fah.score }}</td>
+    <td>{{ fah.score | number }}</td>
   </tr>
   <tr>
     <td>Total WUs</td>
@@ -22,12 +22,46 @@ If there are blackouts later this year due to Russian attacks, I'll be forced to
   </tr>
    <tr>
     <td>Project Rank</td>
-    <td>{{ fah.rank }}</td>
+    <td>{{ fah.rank | number }}</td>
   </tr> 
   <tr>
     <td>Team Rank</td>
-    <td>46</td>
+    <td>44</td>
   </tr>
 </table>
 
-<h3>Druk Army stats</h3>
+<h3>PrintArmy stats</h3>
+
+<p><a href="https://www.drukarmy.org.ua">PrintArmy</a> is a volunteer coordination platform that allows anyone with a 3D printer to make simple accesories that directly help Ukrainian soldiers.
+I have a 3D printer on my balcony and try to run it non-stop.
+</p>
+
+<table>
+  <tr>
+    <td>Printed</td>
+    <td>192 kg</td>
+  </tr>
+  <tr>
+    <td>Printed last 30 days</td>
+    <td>15,6 kg</td>
+  </tr>
+</table>
+
+<h3> Social Drone stats</h3>
+
+<p><a href="https://www.socialdrone.com.ua/en">Social Drone</a> is a volunteer initiative empowering anyone to make a FPV drone for AFU.
+They provide the list of components and assembly instructions.
+They also test the assembled drones and work closely with certain divisions to customize the drones for their needs.
+</p>
+<p>It costs me on average 200 dollars to buy components for one drone and about 80 dollars to buy battery and additional accessories.
+</p>
+<p>Some of the drones I assembled from the components my friends donated me.
+The number is here to motivate me make more drones, not for accurate accounting.
+</p>
+
+<table>
+  <tr>
+    <td>Drones assembled</td>
+    <td>21</td>
+  </tr>
+</table>
