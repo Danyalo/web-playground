@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx --env-file=.env @11ty/eleventy --serve",
-    "build": "npx --env-file=.env @11ty/eleventy"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-fetch": "^5.1.0"
+    "@11ty/eleventy-fetch": "^5.1.0",
+    "dotenv": "^17.2.2"
   }
 }

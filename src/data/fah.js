@@ -1,8 +1,8 @@
 const fetch = require("@11ty/eleventy-fetch");
+require('dotenv').config();
 
 module.exports = async function () {
     let user = process.env.FAH_USERNAME;
-    console.log(user);
     let url = `https://api.foldingathome.org/user/${user}`;
   
     try {
