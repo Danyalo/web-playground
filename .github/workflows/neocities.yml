@@ -14,20 +14,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install deps and build
-      run: |
-        npm i
-        npm run build
-    - name: Deploy to neocities
-      uses: bcomnes/deploy-to-neocities@v3
-      with:
-        api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
-        cleanup: false
-        neocities_supporter: false
-        preview_before_deploy: true
-        dist_dir: public
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Set .env file
+        run: echo "$env_file" > .env
+        env:
+          env_file: ${{ secrets.ENV_FILE }}
+      - name: Install deps and build
+        run: |
+          npm i
+          npm run build
+      - name: Deploy to neocities
+        uses: bcomnes/deploy-to-neocities@v3
+        with:
+          api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
+          cleanup: false
+          neocities_supporter: false
+          preview_before_deploy: true
+          dist_dir: public
