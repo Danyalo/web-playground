@@ -1,0 +1,20 @@
+---
+title: Media
+layout: base.njk
+---
+
+<article>
+  <div>
+    <h2>Listening: albums</h2>
+    <div>
+      {% for album in albums %}
+        <div>
+          <img src="{{album.image[3]['#text']}}" width="350" height="350" alt="The cover art for {{album.name}}">
+          <p style="font-size: 1rem">
+            <a href="{{album.url}}" title="{{album.name}}">{{album.name}} - {{album.artist.name}}</a>
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>
