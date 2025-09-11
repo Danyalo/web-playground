@@ -1,7 +1,8 @@
 const fetch = require("@11ty/eleventy-fetch");
 
 module.exports = async function () {
-    let user = "CatInTheHat2003";
+    let user = process.env.FAH_USERNAME;
+    console.log(user);
     let url = `https://api.foldingathome.org/user/${user}`;
   
     try {

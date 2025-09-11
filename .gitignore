@@ -5,3 +5,6 @@ node_modules
 public
 
 .cache/
+
+# environment variables
+.env
