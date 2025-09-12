@@ -3,16 +3,29 @@ title: Media
 layout: base.njk
 ---
 
+<style>
+.album-container:hover .play-count-overlay {
+  opacity: 1 !important;
+}
+
+/* Hide scrollbar for WebKit browsers */
+.album-scroll::-webkit-scrollbar {
+  display: none;
+}
+</style>
+
 <article>
   <div>
-    <h2>Listening: albums</h2>
-    <div>
+    <h2>Last 7 days albums</h2>
+    <div class="album-scroll" style="display: flex; overflow-x: auto; gap: 16px; padding: 0; scrollbar-width: none; -ms-overflow-style: none;">
       {% for album in albums %}
-        <div>
-          <img src="{{album.image[3]['#text']}}" width="350" height="350" alt="The cover art for {{album.name}}">
-          <p style="font-size: 1rem">
-            <a href="{{album.url}}" title="{{album.name}}">{{album.name}} - {{album.artist.name}}</a>
-          </p>
+        <div class="album-container" style="flex-shrink: 0; position: relative; display: inline-block;">
+          <a href="{{album.url}}">
+            <img src="{{album.image[3]['#text']}}" width="200" height="200" alt="The cover art for {{album.name}}" style="border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block;">
+            <div class="play-count-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 8px; text-align: center; border-radius: 0 0 8px 8px; opacity: 0; transition: opacity 0.3s ease; font-size: 14px; font-weight: bold;">
+              {{album.playcount}} plays
+            </div>
+          </a>
         </div>
       {% endfor %}
     </div>
