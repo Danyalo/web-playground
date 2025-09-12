@@ -20,14 +20,14 @@
 </head>
 
 <body>
-  <header>{% include 'header.njk' %}</header>
+  <header>{% include 'partials/header.njk' %}</header>
 
-  <nav>{% include 'navigation.njk' %}</nav>
+  <nav>{% include 'partials/navigation.njk' %}</nav>
 
   <main>
     <h2>{{ contentTitle }}</h2>
     {{ content | safe }}
   </main>
 
-  <footer>{% include 'footer.njk' %}</footer>
+  <footer>{% include 'partials/footer.njk' %}</footer>
 </body>

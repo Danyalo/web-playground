@@ -1,7 +1,7 @@
 ---
 title: About
 contentTitle: About Me
-layout: base.njk
+layout: layouts/base.njk
 ---
 
 I'm a mid-20 software developer from Ukraine.

@@ -1,29 +1,162 @@
 ---
 title: Media
-layout: base.njk
+layout: layouts/base.njk
 ---
 
 <style>
+body {
+  max-width: 50em;
+}
+
+/* Album grid layout - 2 rows of 4 */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.album-container {
+  position: relative;
+  display: inline-block;
+}
+
+.album-container img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: block;
+}
+
 .album-container:hover .play-count-overlay {
   opacity: 1 !important;
 }
 
-/* Hide scrollbar for WebKit browsers */
-.album-scroll::-webkit-scrollbar {
-  display: none;
+.play-count-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 8px;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Movie grid layout - 2 rows of 6 */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.movie-container {
+  position: relative;
+  display: inline-block;
+}
+
+.movie-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: block;
+}
+
+.movie-container:hover .movie-info-overlay {
+  opacity: 1 !important;
+}
+
+.movie-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 8px;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 12px;
+}
+
+.movie-title {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+/* Responsive design for smaller screens */
+@media only screen and (max-width: 768px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+  }
+  
+  .album-container img {
+    aspect-ratio: 1;
+  }
+  
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+  }
+  
+  .movie-container img {
+    height: 150px;
+  }
 }
 </style>
 
 <article>
   <div>
     <h2>Last 7 days albums</h2>
-    <div class="album-scroll" style="display: flex; overflow-x: auto; gap: 16px; padding: 0; scrollbar-width: none; -ms-overflow-style: none;">
+    <div class="album-grid">
       {% for album in albums %}
-        <div class="album-container" style="flex-shrink: 0; position: relative; display: inline-block;">
+        <div class="album-container">
           <a href="{{album.url}}">
-            <img src="{{album.image[3]['#text']}}" width="200" height="200" alt="The cover art for {{album.name}}" style="border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block;">
-            <div class="play-count-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 8px; text-align: center; border-radius: 0 0 8px 8px; opacity: 0; transition: opacity 0.3s ease; font-size: 14px; font-weight: bold;">
+            <img src="{{album.image[3]['#text']}}" alt="The cover art for {{album.name}}">
+            <div class="play-count-overlay">
               {{album.playcount}} plays
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>
+
+{% set letterboxdItems = letterboxd.slice(0,12) %}
+
+<article>
+  <div>
+    <h2>Recent movies</h2>
+    <div class="movie-grid">
+      {% for item in letterboxdItems %}
+        <div class="movie-container">
+          <a href="{{ item.uri }}">
+            <img 
+              src="{{ item.film.image.large }}" 
+              alt="Poster for {{ item.film.title }}" 
+              loading="lazy">
+            <div class="movie-info-overlay">
+              <div class="movie-title">{{ item.film.title }}</div>
             </div>
           </a>
         </div>
